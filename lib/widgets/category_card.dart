@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_news/models/category_model.dart';
 
 class CategoryCard extends StatelessWidget {
-  final CategoryModel categoryModel;
+  final NewsModel categoryModel;
   const CategoryCard({
     super.key,
     required this.categoryModel,
@@ -25,8 +25,9 @@ class CategoryCard extends StatelessWidget {
         child: Text(
           categoryModel.name,
           style: const TextStyle(
-            color: Colors.green,
+            color: Colors.yellow,
             fontSize: 20,
+            fontWeight: FontWeight.bold,
           ),
         ),
       ),
