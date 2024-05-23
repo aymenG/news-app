@@ -11,35 +11,37 @@ class NewsItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-          decoration: BoxDecoration(
-              shape: BoxShape.rectangle,
-              borderRadius: BorderRadius.circular(12),
-              image: DecorationImage(
-                image: AssetImage(newsModel.image),
-                fit: BoxFit.fitWidth,
-              )),
-          height: 300,
-          width: 300,
-        ),
-        Text(
-          newsModel.title,
-          style: const TextStyle(
-            color: Colors.green,
-            fontSize: 25,
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: Image.network(
+              newsModel.image,
+              fit: BoxFit.cover,
+            ),
           ),
-        ),
-        Text(
-          newsModel.description,
-          style: const TextStyle(
-            color: Colors.black,
-            fontSize: 20,
+          const SizedBox(height: 8),
+          Text(
+            newsModel.title,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+            style: const TextStyle(
+                color: Colors.black, fontSize: 24, fontWeight: FontWeight.bold),
           ),
-        ),
-      ],
+          const SizedBox(height: 8),
+          Text(
+            newsModel.description,
+            maxLines: 2,
+            style: const TextStyle(
+              color: Colors.grey,
+              fontSize: 20,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

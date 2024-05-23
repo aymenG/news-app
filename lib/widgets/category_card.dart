@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_news/models/category_model.dart';
 
 class CategoryCard extends StatelessWidget {
-  final NewsModel categoryModel;
+  final CategoryModel categoryModel;
   const CategoryCard({
     super.key,
     required this.categoryModel,

@@ -27,8 +27,9 @@ class HomePage extends StatelessWidget {
           backgroundColor: Colors.white,
           elevation: 0,
         ),
-        body: ListView(
-          children: [
+        body: CustomScrollView(
+          physics: const BouncingScrollPhysics(),
+          slivers: [
             CategoriesGroup(),
             NewsGroup(),
           ],
