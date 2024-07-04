@@ -18,10 +18,12 @@ class NewsItem extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(12),
-            child: Image.network(
-              newsModel.image,
-              fit: BoxFit.cover,
-            ),
+            child: newsModel.image != null
+                ? Image.network(
+                    newsModel.image!,
+                    fit: BoxFit.cover,
+                  )
+                : Image.asset('assets/news.jpg'),
           ),
           const SizedBox(height: 8),
           Text(
@@ -33,7 +35,7 @@ class NewsItem extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           Text(
-            newsModel.description,
+            newsModel.description != null ? newsModel.description! : "",
             maxLines: 2,
             style: const TextStyle(
               color: Colors.grey,
