@@ -5,10 +5,10 @@ import 'category_card.dart';
 
 class CategoriesGroup extends StatelessWidget {
   final List<CategoryModel> categories = [
-    CategoryModel(name: "General", image: "assets/general.avif"),
+    CategoryModel(name: "General", image: "assets/general.jpg"),
     CategoryModel(name: "Health", image: "assets/health.avif"),
-    CategoryModel(name: "Sport", image: "assets/sports.avif"),
-    CategoryModel(name: "Business", image: "assets/business.avif"),
+    CategoryModel(name: "Sport", image: "assets/sport.jpg"),
+    CategoryModel(name: "Business", image: "assets/business.jpg"),
     CategoryModel(name: "Entertainment", image: "assets/entertaiment.avif"),
     CategoryModel(name: "Science", image: "assets/science.avif"),
     CategoryModel(name: "Technology", image: "assets/technology.jpeg"),
