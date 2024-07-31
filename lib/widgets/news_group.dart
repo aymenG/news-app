@@ -4,25 +4,10 @@ import 'package:my_news/services/news_service.dart';
 import 'package:my_news/widgets/news_item.dart';
 import '../models/news_model.dart';
 
-class NewsGroup extends StatefulWidget {
-  NewsGroup({super.key});
+class NewsGroup extends StatelessWidget {
+  const NewsGroup({super.key, required this.news});
 
-  @override
-  State<NewsGroup> createState() => _NewsGroupState();
-}
-
-class _NewsGroupState extends State<NewsGroup> {
-  List<NewsModel> news = [];
-  @override
-  void initState() {
-    super.initState();
-    getGeneralNews();
-  }
-
-  Future<void> getGeneralNews() async {
-    news = await NewsService(Dio()).getNews();
-    setState(() {});
-  }
+ final List<NewsModel> news ;
 
   @override
   Widget build(BuildContext context) {
