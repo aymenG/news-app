@@ -1,8 +1,15 @@
 class NewsModel {
-  String? image;
+  final String? image;
   final String title;
-  String? description;
+  final String? description;
 
   NewsModel(
       {required this.image, required this.title, required this.description});
+
+  factory NewsModel.fromJson(json) {
+    return NewsModel(
+        image: json['urlToImage'],
+        title: json['title'],
+        description: json['description']);
+  }
 }
