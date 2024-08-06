@@ -1,7 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:my_news/models/category_model.dart';
-
 import '../models/news_model.dart';
 import '../services/news_service.dart';
 import 'error_message.dart';
