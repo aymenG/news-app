@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../models/news_model.dart';
 import '../services/news_service.dart';
+import 'error_message.dart';
 import 'news_group.dart';
 
 class NewsListViewBuilder extends StatefulWidget {
@@ -15,30 +16,29 @@ class NewsListViewBuilder extends StatefulWidget {
 }
 
 class _NewsListViewBuilderState extends State<NewsListViewBuilder> {
-  List<NewsModel> news = [];
-  bool isLoading = true;
+  var futureNews;
+
   @override
   void initState() {
     super.initState();
-    getGeneralNews();
-  }
-
-  Future<void> getGeneralNews() async {
-    news = await NewsService(Dio()).getNews();
-    setState(() {});
-    isLoading = false;
+    futureNews = NewsService(Dio()).getNews();
   }
 
   @override
   Widget build(BuildContext context) {
-    return isLoading
-        ? const SliverToBoxAdapter(
-            child: Center(child: CircularProgressIndicator()))
-        : news.isNotEmpty
-            ? NewsGroup(news: news)
-            : const SliverToBoxAdapter(
-                child: Center(
-                    child: Text("Sorry, There was an error, please try later")),
-              );
+    return FutureBuilder<List<NewsModel>>(
+        future: futureNews,
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return NewsGroup(news: snapshot.data!);
+          } else if (snapshot.hasError) {
+            return const ErrorMessage(
+              message: "Sorry, There was an error, please try later",
+            );
+          } else {
+            return const SliverToBoxAdapter(
+                child: Center(child: CircularProgressIndicator()));
+          }
+        });
   }
 }
