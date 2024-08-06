@@ -31,7 +31,7 @@ class HomePage extends StatelessWidget {
           physics: const BouncingScrollPhysics(),
           slivers: [
             CategoriesGroup(),
-            const NewsListViewBuilder(),
+            const NewsListViewBuilder(category: "general",),
           ],
         ));
   }
