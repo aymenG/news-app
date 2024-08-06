@@ -5,8 +5,6 @@ import 'package:my_news/views/home_page.dart';
 
 void main() async {
   runApp(const MyApp());
-  NewsService newsService = NewsService(Dio());
-  await newsService.getNews();
 }
 
 class MyApp extends StatelessWidget {
