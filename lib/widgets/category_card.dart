@@ -3,6 +3,7 @@ import 'package:my_news/models/category_model.dart';
 import 'package:my_news/views/category_view.dart';
 
 class CategoryCard extends StatelessWidget {
+  
   final CategoryModel categoryModel;
   const CategoryCard({
     super.key,
