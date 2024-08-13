@@ -17,16 +17,14 @@ class CategoriesGroup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SliverToBoxAdapter(
-      child: SizedBox(
-        height: 100,
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: categories.length,
-          itemBuilder: (BuildContext context, int index) {
-            return CategoryCard(categoryModel: categories[index]);
-          },
-        ),
+    return SizedBox(
+      height: 80,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: categories.length,
+        itemBuilder: (BuildContext context, int index) {
+          return CategoryCard(categoryModel: categories[index]);
+        },
       ),
     );
   }

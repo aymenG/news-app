@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../widgets/category_group.dart';
+import '../widgets/cusrom_categories_bar.dart';
 import '../widgets/news_list_view_builder.dart';
 
 class HomePage extends StatelessWidget {
@@ -9,6 +9,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+
           title: RichText(
             text: const TextSpan(
               children: [
@@ -27,12 +28,15 @@ class HomePage extends StatelessWidget {
           backgroundColor: Colors.white,
           elevation: 0,
         ),
-        body: CustomScrollView(
-          physics: const BouncingScrollPhysics(),
+        body: const  CustomScrollView(
+          physics:  BouncingScrollPhysics(),
           slivers: [
-            CategoriesGroup(),
-            const NewsListViewBuilder(category: "general",),
+            CustomCategoriesBar(),
+            NewsListViewBuilder(
+              category: "general",
+            ),
           ],
         ));
   }
 }
+
