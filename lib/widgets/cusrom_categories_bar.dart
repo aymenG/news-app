@@ -12,6 +12,7 @@ class CustomCategoriesBar extends StatelessWidget {
       floating: true,
       backgroundColor: Colors.white,
       flexibleSpace: FlexibleSpaceBar(
+        
         background: Stack(
           children: <Widget>[
             CategoriesGroup(),
