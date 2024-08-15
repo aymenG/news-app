@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'category_group.dart';
+
 class CustomCategoriesBar extends StatelessWidget {
   const CustomCategoriesBar({
     super.key,
@@ -9,17 +10,16 @@ class CustomCategoriesBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
+      automaticallyImplyLeading: false,
       floating: true,
       backgroundColor: Colors.white,
       flexibleSpace: FlexibleSpaceBar(
-        
         background: Stack(
           children: <Widget>[
             CategoriesGroup(),
           ],
         ),
       ),
-    
       expandedHeight: 80,
     );
   }

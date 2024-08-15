@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'News app',
       debugShowCheckedModeBanner: false,
       home: HomePage(
-        theKeyword: "general news",
+        theKeyword: "Headlines",
       ),
     );
   }
