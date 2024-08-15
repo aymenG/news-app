@@ -14,7 +14,9 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title: 'News app',
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: HomePage(
+        theKeyword: "general news",
+      ),
     );
   }
 }

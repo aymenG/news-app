@@ -1,20 +1,23 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import '../widgets/cusrom_categories_bar.dart';
 import '../widgets/news_list_view_builder.dart';
-import 'search_page.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  final String theKeyword;
+  const HomePage({super.key, required this.theKeyword});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           actions: [
-            // Navigate to the Search Screen
             IconButton(
-                onPressed: () => Navigator.of(context).push(
-                    MaterialPageRoute(builder: (_) => const SearchPage())),
+                onPressed: () {
+                  showSearch(
+                      context: context, delegate: CustomSearchDelegate());
+                },
                 icon: const Icon(Icons.search))
           ],
           title: RichText(
@@ -35,15 +38,48 @@ class HomePage extends StatelessWidget {
           backgroundColor: Colors.white,
           elevation: 0,
         ),
-        body: const CustomScrollView(
-          physics: BouncingScrollPhysics(),
+        body: CustomScrollView(
+          physics: const BouncingScrollPhysics(),
           slivers: [
-            CustomCategoriesBar(),
+            const CustomCategoriesBar(),
             NewsListViewBuilder(
-              category: "general",
+              category: theKeyword,
             ),
           ],
         ));
   }
 }
 
+class CustomSearchDelegate extends SearchDelegate {
+  @override
+  List<Widget>? buildActions(BuildContext context) {
+    return [
+      IconButton(
+          onPressed: () {
+            query = "";
+          },
+          icon: const Icon(Icons.close))
+    ];
+  }
+
+  @override
+  Widget? buildLeading(BuildContext context) {
+    return IconButton(
+        onPressed: () {
+          close(context, "");
+        },
+        icon: const Icon(Icons.arrow_back));
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    return HomePage(
+      theKeyword: query.toString(),
+    );
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    return const Text("");
+  }
+}
