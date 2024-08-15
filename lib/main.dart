@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:my_news/views/home_page.dart';
+import 'package:flutter/services.dart';
 
 void main() async {
   runApp(const MyApp());
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
 }
 
 class MyApp extends StatelessWidget {
