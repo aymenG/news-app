@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:my_news/widgets/news_item_details.dart';
-
+import 'package:fluttertoast/fluttertoast.dart';
 import '../models/news_model.dart';
 
 class NewsItem extends StatelessWidget {
@@ -56,6 +56,38 @@ class NewsItem extends StatelessWidget {
                 color: Colors.grey,
                 fontSize: 20,
               ),
+            ),
+            const SizedBox(width: 50),
+            Row(
+              children: [
+                IconButton(
+                  icon: const ImageIcon(
+                    AssetImage('assets/heart.png'),
+                    size: 30,
+                  ),
+                  onPressed: () {
+                    Fluttertoast.showToast(
+                        msg: "Like the article",
+                        toastLength: Toast.LENGTH_SHORT,
+                        gravity: ToastGravity.CENTER,
+                        timeInSecForIosWeb: 1,
+                        textColor: Colors.white,
+                        fontSize: 16.0);
+                  },
+                ),
+                IconButton(
+                  icon: const Icon(Icons.share),
+                  onPressed: () {
+                    Fluttertoast.showToast(
+                        msg: "share the article",
+                        toastLength: Toast.LENGTH_SHORT,
+                        gravity: ToastGravity.CENTER,
+                        timeInSecForIosWeb: 1,
+                        textColor: Colors.white,
+                        fontSize: 16.0);
+                  },
+                ),
+              ],
             ),
           ],
         ),
