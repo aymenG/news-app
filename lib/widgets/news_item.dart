@@ -57,17 +57,13 @@ class NewsItem extends StatelessWidget {
                 fontSize: 20,
               ),
             ),
-            const SizedBox(width: 50),
             Row(
               children: [
                 IconButton(
-                  icon: const ImageIcon(
-                    AssetImage('assets/heart.png'),
-                    size: 30,
-                  ),
+                  icon: const Icon(Icons.bookmark),
                   onPressed: () {
                     Fluttertoast.showToast(
-                        msg: "Like the article",
+                        msg: "save the article",
                         toastLength: Toast.LENGTH_SHORT,
                         gravity: ToastGravity.CENTER,
                         timeInSecForIosWeb: 1,
