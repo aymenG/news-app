@@ -65,7 +65,7 @@ class NewsItem extends StatelessWidget {
                     Fluttertoast.showToast(
                         msg: "save the article",
                         toastLength: Toast.LENGTH_SHORT,
-                        gravity: ToastGravity.CENTER,
+                        gravity: ToastGravity.BOTTOM,
                         timeInSecForIosWeb: 1,
                         textColor: Colors.white,
                         fontSize: 16.0);
@@ -77,7 +77,7 @@ class NewsItem extends StatelessWidget {
                     Fluttertoast.showToast(
                         msg: "share the article",
                         toastLength: Toast.LENGTH_SHORT,
-                        gravity: ToastGravity.CENTER,
+                        gravity: ToastGravity.BOTTOM,
                         timeInSecForIosWeb: 1,
                         textColor: Colors.white,
                         fontSize: 16.0);
