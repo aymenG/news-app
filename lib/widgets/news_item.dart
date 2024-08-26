@@ -57,31 +57,15 @@ class NewsItem extends StatelessWidget {
                 fontSize: 20,
               ),
             ),
-            Row(
+            const Row(
               children: [
-                IconButton(
-                  icon: const Icon(Icons.bookmark),
-                  onPressed: () {
-                    Fluttertoast.showToast(
-                        msg: "save the article",
-                        toastLength: Toast.LENGTH_SHORT,
-                        gravity: ToastGravity.BOTTOM,
-                        timeInSecForIosWeb: 1,
-                        textColor: Colors.white,
-                        fontSize: 16.0);
-                  },
+                CustomIArticleButton(
+                  icon: Icons.bookmark,
+                  btnText: "Save",
                 ),
-                IconButton(
-                  icon: const Icon(Icons.share),
-                  onPressed: () {
-                    Fluttertoast.showToast(
-                        msg: "share the article",
-                        toastLength: Toast.LENGTH_SHORT,
-                        gravity: ToastGravity.BOTTOM,
-                        timeInSecForIosWeb: 1,
-                        textColor: Colors.white,
-                        fontSize: 16.0);
-                  },
+                CustomIArticleButton(
+                  icon: Icons.share,
+                  btnText: "Share",
                 ),
               ],
             ),
@@ -89,5 +73,34 @@ class NewsItem extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class CustomIArticleButton extends StatelessWidget {
+  final IconData icon;
+  final String btnText;
+
+  const CustomIArticleButton({
+    super.key,
+    required this.icon,
+    required this.btnText,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+        onTap: () {
+          Fluttertoast.showToast(
+              msg: btnText,
+              toastLength: Toast.LENGTH_SHORT,
+              gravity: ToastGravity.BOTTOM,
+              timeInSecForIosWeb: 1,
+              textColor: Colors.white,
+              fontSize: 16.0);
+        },
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [Icon(icon), Text(btnText)],
+        ));
   }
 }
